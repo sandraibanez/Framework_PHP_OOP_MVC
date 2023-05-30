@@ -1,0 +1,284 @@
+   /* #containerShop {
+   
+    text-align: center;
+    width: 1325px;
+    float: left;
+    display: block;
+}
+.page{
+  font-size: 15px;
+}
+.list_product_details{
+  font-size: 20px;
+}
+img { 
+    display: block;
+    text-align: center;
+    vertical-align: left;
+    margin: auto;
+}
+.img_car{
+  float: left;
+  
+}
+#containerShop .date_img{
+    display: block;
+    margin-left: 15px;
+} */
+.filters{
+  margin-left: 100px;
+
+}
+.content-img-details{
+    margin-right: 15px;
+}
+.list_product_details{
+  font-size: 20px;
+}
+#map{
+  margin-left: 100px;
+}
+img { 
+  display: block;
+  text-align: center;
+  vertical-align: left;
+  margin: auto;
+}
+.date_car{
+  text-align: center;
+}
+#table-shop{
+  margin-left: 300px;
+}
+
+/* STYLE LIKE */
+
+.list__heart {
+  float: right;
+  margin-right: 2%;
+  /* content: '♥'; */
+  /* color:aquamarine; */
+  /* content:"&#x2764"; */
+  /* &#x2764 */
+  
+}
+.list__heart::before{
+  color:red;
+}
+.details__heart {
+  font-size: 23px;
+}
+.like_red {
+  /* content: attr(heart); */
+  /* content:attr(list__heart); */
+  color: rgb(235, 99, 99);
+}
+
+/* ============================================================ */
+
+
+/* ============================================================= */
+/* .buttons {
+  background-color: #fbffff;
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.more_info_list {
+  margin: 30px auto;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.more_info_list:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+@media all and (max-width: 500px) {
+  .buttons {
+    flex-direction: column;
+  }
+}
+.more_info_list #titulo {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+ 
+  height: 100px;
+} */
+
+
+
+
+/* carta para mostrar los coches */
+/* .card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.card ul li {
+  font-size: 18px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.card ul li:last-child {
+  border-bottom: none;
+} */
+
+/* ------------------------------------------ */
+.more_info_list {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+  /* margin: 0 -1%; */
+}
+.title_content{
+  /* display:flex;
+  flex-wrap: wrap; */
+  /* justify-content: space-between;
+  height: 30%;
+  align-items: center;
+  margin: 0 10%; */
+  display: grid;
+  padding: 1rem;
+  /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+}
+.portfolio-item {
+  display: grid;
+  box-shadow: 0px 1px 5px #555;
+  background-color: white;
+}
+
+.portfolio-image img {
+  max-width: 100%;
+}
+
+.item-main {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.item-main h5 {
+  font-size: 2rem;
+  padding: .5rem;
+}
+
+.button {
+  display: block;
+  background-color: tomato;
+   padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s ease-out; 
+}
+
+.button:active,
+.button:focus,
+.button:hover {
+  background-color: red;
+}
+
+
+/* ------------------------------------------------------ */
+
+.list_content_shop {
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+  text-align: center;
+  vertical-align: left;
+  margin: auto;
+  margin: 0 -10%;
+  display: block;
+}
+#containerShop{
+  display: grid;
+  padding: 1rem;
+  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* grid-template-columns: repeat(12, 1fr); */
+  grid-gap: 1rem;
+ 
+}
+.shell {
+  display: grid;
+  box-shadow: 0px 1px 5px #555;
+  background-color: white;
+}
+
+.thumb-line img {
+  max-width: 100%;
+}
+
+.cell-sm-6 {
+  display: grid;
+  grid-auto-rows: 1fr;
+  text-align: center;
+}
+
+.cell-sm-6 .q {
+  font-size: 2rem;
+  padding: .5rem;
+  text-align: center;
+}
+
+.buttons {
+  display: block;
+  background-color: rgb(240, 120, 99);
+   padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s ease-out; 
+}
+ #titulo{
+  color: aqua;
+  font-size: 2rem;
+  padding: .5rem;
+}
+.buttons:active,
+.buttons:focus,
+.buttons:hover {
+  background-color: rgb(191, 113, 113);
+}
+/* ---------------------------------------------------- */
+#pagination{
+  text-align: center;
+}
