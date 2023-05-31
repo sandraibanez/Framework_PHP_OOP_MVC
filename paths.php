@@ -3,7 +3,7 @@
     define('PROJECT', '/MVC_CRUD_conccesionario3/Framework_PHP_OOP_MVC/');
     //SITE_ROOT
     define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . PROJECT);
-
+   
 
     // C:\xampp\htdocs\MVC_CRUD_conccesionario3\Framework_PHP_OOP_MVC\paths.php
     // define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . PROJECT);
@@ -28,6 +28,11 @@
     
     //UTILS
     define('UTILS', SITE_ROOT . 'utils/');
+
+    // iconos 
+    $iconos = parse_ini_file(UTILS."iconos.ini");   
+    define('ICONOS',$iconos['url']);
+
 
     //VIEW
     define('VIEW_PATH_INC', SITE_ROOT . 'view/inc/');

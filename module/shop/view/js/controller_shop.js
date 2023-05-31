@@ -146,6 +146,7 @@ function loadDetails(id_car) {
                     // "<a class='button buy' href='#'>Buy</a>" +
                     "<a class='carrito' id='" + data[0][0].id_car + "'><i id=" + data[0][0].id_car + " class='fa-solid fa-cart-shopping'></i></a>" +
                     "<span class='button' id='price_details'>" + data[0][0].price + "<i class='fa-solid fa-euro-sign'></i> </span>" +
+                    "<br>"+
                     "<a class='details__heart' id='" + data[0][0].id_car + "'><i id=" + data[0][0].id_car + " class='fa-solid fa-heart fa-lg'></i></a>" +
                     
                     //  "<a 'class='carrito' id='" + data[row].id_car +"><i id= " + data[row].id_car + " class='fa-solid fa-cart-shopping'></i></a>"  +
@@ -796,6 +797,12 @@ function click_like(id_car, lugar) {
                 console.log(id_car);
                
                 $("#" + id_car + ".fa-heart").toggleClass('like_red');
+                if (data=='likes'){
+                    toastr.success('like');
+                }
+                if (data=='delete'){
+                    toastr.success('delete');
+                }
                 // html(<span class='like_red'>&#x2764;</span>)
             }).catch(function() {
                 // window.location.href = "index.php?page=ctrl_exceptions&op=503&type=503&lugar=Function click_like SHOP";
@@ -855,6 +862,12 @@ function redirect_login_like() {
         .then(function(data) {
             console.log(data);
                 $("#" + id_car + ".fa-heart").toggleClass('like_red');
+                if (data=='likes'){
+                    toastr.success('like');
+                }
+                if (data=='delete'){
+                    toastr.success('delete');
+                }
                 if (redirect_like) {
                 redirect_like = redirect_like.split(",");
                 var id = redirect_like[0];
