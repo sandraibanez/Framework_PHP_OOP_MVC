@@ -88,7 +88,24 @@
             return "update";
         }
 
-        
+        public function select_social_login($db, $id){
+
+			$sql = "SELECT * FROM users WHERE id_user='$id'";
+            $stmt = $db->ejecutar($sql);
+
+            return $db->listar($stmt);
+        }
+
+        public function insert_social_login($db, $id, $username, $email, $avatar){
+
+            $sql ="INSERT INTO `users` ( `username`, `password`, `email`, `type_user`, `avatar`,`token_email`, `activate`)     
+                VALUES ( '$username', '', '$email', 'client', '$avatar', '', 1)";
+            // $hashavatar = md5(strtolower(trim($email))); 
+            // $avatar = "https://i.pravatar.cc/500?u=$hashavatar";
+            // $sql = "INSERT INTO `users`(`username`, `password`, `email`, `type_user`, `avatar`,`token_email`, `activate`) 
+            // VALUES ('$username','','$email','client',' $avatar','',1)";
+            return $stmt = $db->ejecutar($sql);
+        }
 
     }
 

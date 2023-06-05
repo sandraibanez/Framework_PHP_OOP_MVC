@@ -73,7 +73,6 @@
 					return 'error_user';
 				} else {
 					$contraseyna = $args[1];
-					// return $rdo[0]["username"];
 					if (password_verify($contraseyna, $rdo[0]["password"])) {
 						$token = middleware::create_token($rdo[0]["username"]);
 						$_SESSION['username'] = $rdo[0]["username"];
@@ -204,5 +203,36 @@
 			return 'fail';
 		}
 
-		
+		public function get_social_login_BLL($args) {
+			// return  $args[2];
+			if (!empty($this -> dao -> select_user($this->db, $args[1]))) {
+				$user = $this -> dao -> select_user($this->db, $args[1]);
+				$email = $args[2];
+					if ($email == $user[0]["email"]) {
+						$token = middleware::create_token($user[0]["username"]);
+						$_SESSION['username'] = $user[0]["username"];
+						$_SESSION['tiempo'] = time();
+						return $token;
+					} else {
+						return 'error_passwd';
+					}
+            } else {
+				$this -> dao -> insert_social_login($this->db, $args[0], $args[1], $args[2], $args[3]);
+				$user = $this -> dao -> select_user($this->db, $args[1]);
+				$email = $args[2];
+				if ($email == $user[0]["email"]) {
+					$token = middleware::create_token($user[0]["username"]);
+					$_SESSION['username'] = $user[0]["username"];
+					$_SESSION['tiempo'] = time();
+					return $token;
+				} else {
+					return 'error_passwd';
+				}
+			}
+		}
+		public function get_firebase_config_BLL() {
+			$js ="";
+    	    $js = parse_ini_file(UTILS.'js.ini'); 
+			return $js;
+		}
 	}

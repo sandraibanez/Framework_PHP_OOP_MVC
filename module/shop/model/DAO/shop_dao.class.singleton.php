@@ -161,6 +161,7 @@
             return "countcar";
         }
         public function filters($db, $filter) {
+            // return $filter;
             $total_prod =  $_POST['total_prod'];
             $items_page =  $_POST['items_page'];
             $consulta = "SELECT DISTINCT c.*
@@ -187,6 +188,7 @@
                     
                 }   
                 $consulta.="LIMIT $total_prod,$items_page ";   
+                // return $consulta;
             $stmt = $db->ejecutar($consulta);
             return $db->listar($stmt);
             

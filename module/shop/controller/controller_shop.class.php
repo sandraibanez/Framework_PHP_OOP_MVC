@@ -16,6 +16,8 @@
             echo json_encode(common::load_model('shop_model', 'get_countcar',$_POST['id']));
         }
         function filter() {
+            // echo json_encode($_POST['filter']);
+            // exit;
             echo json_encode(common::load_model('shop_model', 'get_filter',$_POST['filter']));
         }
         

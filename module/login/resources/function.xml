@@ -56,4 +56,12 @@
         <name>refresh_cookie</name>
         <uri>refresh_cookie</uri>
     </function>
+    <function>
+        <name>social_login</name>
+        <uri>social_login</uri>
+    </function>
+    <function>
+        <name>firebase_config</name>
+        <uri>firebase_config</uri>
+    </function>
 </functions>

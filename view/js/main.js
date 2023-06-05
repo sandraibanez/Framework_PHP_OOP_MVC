@@ -59,10 +59,14 @@ function load_menu() {
     //         menu_client();
     //     }
     var token = localStorage.getItem('token');
+    console.log(token);
     if (token) {
+        console.log('data_token');
+    // ajaxPromise(friendlyURL('?module=login&op=data_user'), 'POST', 'JSON', {token: localStorage.getItem('token')})
     ajaxPromise(friendlyURL('?module=login&op=data_user'), 'POST', 'JSON', {token: localStorage.getItem('token')})
     .then(function(data) {
         console.log(data);
+        console.log('hola');
         //     if (data[0].user_type === 'admin') {
         //     menu_admin();
         // }else if (data[0].user_type === 'client') {
@@ -103,7 +107,7 @@ function load_menu() {
 // });
     }).catch(function() {
         // $('<li></li>').attr({'class' : 'nav_item'}).html('<a href="' + friendlyURL("?module=login&op=view") + '" class="nav_link" data-tr="Log in">Log in</a>').appendTo('.nav_list');
-        $('<li></li>').attr({'class' : 'nav_item'}).html('<a href="' + friendlyURL("?module=login") + '" class="nav_link" data-tr="Log in">Log in</a>').appendTo('.nav_list');
+        // $('<li></li>').attr({'class' : 'nav_item'}).html('<a href="' + friendlyURL("?module=login") + '" class="nav_link" data-tr="Log in">Log in</a>').appendTo('.nav_list');
 
     });
     }else {

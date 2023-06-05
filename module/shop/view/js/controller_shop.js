@@ -11,21 +11,22 @@ function loadCars(total_prod = 0, items_page = 3) {
     var detalle_coche = JSON.parse(localStorage.getItem('detalle_coche', detalle_coche));
     var redirect_like = localStorage.getItem('redirect_like',redirect_like);
     if (filter) {
+        // console.log(filter);
         ajaxForSearch(friendlyURL('?module=shop&op=filter'), filter,total_prod, items_page);
     }
     else if (brand_filter) {
         // console.log(category_filter);
         var home=brand_filter;
-        ajaxForSearch(friendlyURL('?module=shop&op=home_filter'), home,total_prod, items_page);
+        ajaxForSearch(friendlyURL('?module=shop&op=home_filter'),filter, home,total_prod, items_page);
         
     } else if (category_filter) {
         var home=category_filter;
         // category_filter='km0';
-        ajaxForSearch(friendlyURL('?module=shop&op=home_filter'), home,total_prod, items_page);
+        ajaxForSearch(friendlyURL('?module=shop&op=home_filter'),filter ,home,total_prod, items_page);
         // load_category_filter(total_prod, items_page);
     } else if (motor_filter) {
         var home=motor_filter;
-        ajaxForSearch(friendlyURL('?module=shop&op=home_filter'), home,total_prod, items_page);
+        ajaxForSearch(friendlyURL('?module=shop&op=home_filter'),filter,home,total_prod, items_page);
         // load_motor_filter(total_prod, items_page);
     }
     else if (filters_search){
@@ -188,7 +189,8 @@ function loadDetails(id_car) {
             //window.location.href = "index.php?module=ctrl_exceptions&op=503&type=503&lugar=Load_Details SHOP";
         });
 }
-function ajaxForSearch(url, home,filter, filters_search, total_prod = 0, items_page = 3) {
+function ajaxForSearch(url,filter,home,filters_search, total_prod = 0, items_page = 3) {
+    
     //  brand_filter, motor_filter, category_filter,
     if (total_prod != 0) {
         localStorage.setItem('total_prod', total_prod);
@@ -204,59 +206,61 @@ function ajaxForSearch(url, home,filter, filters_search, total_prod = 0, items_p
     }
     // friendlyURL('?module=shop&op=all_cars')
 //     'brand_filter': brand_filter, 'motor_filter': motor_filter,'category_filter': category_filter,
-// console.log(url);
-
-    ajaxPromise(url, 'POST', 'JSON', { 'filter': filter, 'home':home, 'filters_search': filters_search,'total_prod': total_prod, 'items_page': items_page})
-        .then(function (data) {
+     console.log(url);
+    ajaxPromise(url, 'POST', 'JSON', { 'filter':filter, 'home':home, 'filters_search': filters_search,'total_prod': total_prod, 'items_page': items_page})
+    .then(function (data) {
+        console.log(data);
+        $("#containerShop").empty();
+        
+        if (data == "error") {
+            $('<div></div>').attr({ 'id': data[row].id_car, 'class': 'list_content_shop' }).appendTo('#containerShop')
+                .html(
+                    '<h1>los filtros seleccionados no encajan con los coches que tenemos</h1>');
+        } else {
+            console.log(data);
+            // console.log(brand_filter);
             $("#containerShop").empty();
-            
-            if (data == "error") {
-                $('<div></div>').attr({ 'id': data[row].id_car, 'class': 'list_content_shop' }).appendTo('#containerShop')
+            for (row in data) {
+                $('<div></div>').appendTo('#containerShop')
                     .html(
-                        '<h1>los filtros seleccionados no encajan con los coches que tenemos</h1>');
-            } else {
-                console.log(data);
-                // console.log(brand_filter);
-                $("#containerShop").empty();
-                for (row in data) {
-                    $('<div></div>').appendTo('#containerShop')
-                        .html(
-                           
-                            "<div class='list_product'>" +
-                            "<div class='img-container'>" +
-                            "<img src= 'http://localhost/MVC_CRUD_conccesionario3/Framework_PHP_OOP_MVC/" + data[row].img_car + "'" + "</img>" +
-                            "</div>" +
-                            "<div class='product-info'>" +
-                            "<div class='product-content'>" +
-                            "<h1><b>" + data[row].id_brand + " " + data[row].name_model + "<a class='list__heart' id='" + data[row].id_car + "'><i id= " + data[row].id_car + " class='fa-solid fa-heart'></i></a>" + "</b></h1>" +
-                            "<h1><b>" + "<a  id='" + data[row].id_car + "'class='carrito'><i id= " + data[row].id_car + " class='fa-solid fa-cart-shopping'></i></a>" + "</b></h1>" +
-                             "<p>Up-to-date maintenance and revisions</p>" +
-                            "<ul>" +
-                            "<li> <i id='col-ico' class='fa-solid fa-road fa-xl'></i>&nbsp;&nbsp;" + data[row].Km + " KM" + "</li>" +
-                            "<li> <i id='col-ico' class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp;" + data[row].gear_shift + "</li>" +
-                            "<li> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i>&nbsp;" + data[row].color + "</li>" +
-                            "</ul>" +
-                            "<div class='buttons'>" +
-                            "<button id='" + data[row].id_car + "' class='more_info_list button add' >More Info</button>" +
-                            "<button class='button buy' >Buy</button>" +
-                            "<span class='button' id='price'>" + data[row].price + '€' + "</span>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>");
-                }
-                mapBox_all(data);
-                load_likes_user();
+                       
+                        "<div class='list_product'>" +
+                        "<div class='img-container'>" +
+                        "<img src= 'http://localhost/MVC_CRUD_conccesionario3/Framework_PHP_OOP_MVC/" + data[row].img_car + "'" + "</img>" +
+                        "</div>" +
+                        "<div class='product-info'>" +
+                        "<div class='product-content'>" +
+                        "<h1><b>" + data[row].id_brand + " " + data[row].name_model + "<a class='list__heart' id='" + data[row].id_car + "'><i id= " + data[row].id_car + " class='fa-solid fa-heart'></i></a>" + "</b></h1>" +
+                        "<h1><b>" + "<a  id='" + data[row].id_car + "'class='carrito'><i id= " + data[row].id_car + " class='fa-solid fa-cart-shopping'></i></a>" + "</b></h1>" +
+                         "<p>Up-to-date maintenance and revisions</p>" +
+                        "<ul>" +
+                        "<li> <i id='col-ico' class='fa-solid fa-road fa-xl'></i>&nbsp;&nbsp;" + data[row].Km + " KM" + "</li>" +
+                        "<li> <i id='col-ico' class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp;" + data[row].gear_shift + "</li>" +
+                        "<li> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i>&nbsp;" + data[row].color + "</li>" +
+                        "</ul>" +
+                        "<div class='buttons'>" +
+                        "<button id='" + data[row].id_car + "' class='more_info_list button add' >More Info</button>" +
+                        "<button class='button buy' >Buy</button>" +
+                        "<span class='button' id='price'>" + data[row].price + '€' + "</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>");
             }
-
+            mapBox_all(data);
+            load_likes_user();
         }
-        )
-        .catch(function (e) {
-            $("#containerShop").empty();
-            $('<div></div>').appendTo('#containerShop')
-                .html('<h1>No hay coches con estos filtros</h1>');
-        });
 
+    }
+    )
+    .catch(function (e) {
+        $("#containerShop").empty();
+        $('<div></div>').appendTo('#containerShop')
+            .html('<h1>No hay coches con estos filtros</h1>');
+    });
+
+
+       
 }
 
 function highlight(filter) {

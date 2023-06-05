@@ -63,6 +63,7 @@
 			return $this -> dao -> countcar($this->db,$args);
 		}
 		public function get_filter_BLL($args) {
+			// return $args;
 			return $this -> dao -> filters($this->db,$args);
 		}
 		public function get_detalle_coche_BLL() {

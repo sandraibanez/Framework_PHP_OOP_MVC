@@ -66,8 +66,16 @@
             // exit;
             echo json_encode(common::load_model('login_model', 'get_refresh_cookie'));
         }
-      
-    
+        function social_login() {
+            // echo json_encode( $_POST['email']);
+            // exit;
+            echo json_encode(common::load_model('login_model', 'get_social_login', [$_POST['id'], $_POST['username'], $_POST['email'], $_POST['avatar']]));
+        } 
+        function firebase_config() {
+            // echo json_encode('firebase_config');
+            // exit;
+            echo json_encode(common::load_model('login_model', 'get_firebase_config'));
+        }
     }
     
 ?>
