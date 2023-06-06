@@ -232,7 +232,7 @@
             AND c.category = ca.id_cat
             AND c.motor = t.cod_tmotor
             AND $filter";
-            $sql.="LIMIT $total_prod, $items_page";
+            // $sql.="LIMIT $total_prod, $items_page";
             $stmt = $db->ejecutar($sql);
             return $db->listar($stmt);
             
