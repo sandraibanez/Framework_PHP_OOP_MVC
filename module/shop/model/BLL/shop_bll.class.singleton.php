@@ -63,10 +63,7 @@
 			return $this -> dao -> countcar($this->db,$args);
 		}
 		public function get_filter_BLL($args) {
-			// return $args;
-			// if(isset($args['model'])==null or isset($args['category'])==null or isset($args['motor'])==null){
-			// 	$model = $args;
-			// }
+			
 			return $this -> dao -> filters($this->db,$args);
 		}
 		public function get_detalle_coche_BLL() {
@@ -74,13 +71,7 @@
 		}
 		
 		public function get_home_filter_BLL($args) {
-			// return $args;
-			// if(isset($args['model'])==null or isset($args['category'])==null or isset($args['motor'])==null){
-				
-			// 	$model = $args;
-			// 	$rdo = $this -> dao -> filters($this->db,$model);
-			// 	return $rdo;
-			// }else{
+			
 			if(isset($args['name_brand'])==null){
 				$brand_filter = $args;
 			}
@@ -96,23 +87,19 @@
 			$category1 = '';
 		
 			if (isset($brand_filter[0]['name_brand'])) {
-				// return 'brand_filter';
 				$brand = $brand_filter[0]['name_brand'][0];
 				$opc ='brand';
 			}
 			if (isset($brand_filter[0]['name_tmotor'])) {
-				// return 'motor';
 				$motor1 = $motor[0]['name_tmotor'][0];
 				$opc ='';
 			}
 			if (isset($brand_filter[0]['category_home'])) {
-				// return 'category';
 				$category1 = $category[0]['category_home'][0];
 				$opc ='cate';
 			}
 
-			return $this->dao->select_filter_home($this->db, $brand,$category1,$motor1,$opc);
-			// }
+		
 		}
 		
 		

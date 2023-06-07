@@ -22,13 +22,9 @@ class middleware{
     return $rt_token;
     }
     public static function create_token($username){
-        // return 'hola';
         $jwt = parse_ini_file(UTILS . "jwt.ini");
-        // $jwt = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/MVC_CRUD_concesionario2/8_MVC_CRUD2.7/model/jwt.ini');
         $header = $jwt['header'];
         $secret = $jwt['secret'];
-        // $header = '{"typ":"JWT", "alg":"HS256"}';
-        // $secret = 'maytheforcebewithyou';
         $payload = '{"iat":"' . time() . '","exp":"' . time() + (600) . '","username":"' . $username . '"}';
 
         $JWT = new JWT;

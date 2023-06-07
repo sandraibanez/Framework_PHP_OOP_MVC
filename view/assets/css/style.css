@@ -17,22 +17,8 @@
 
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-/* @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300); */
 
 
-/* .settings {
-  
-  height:73px; 
-  float:left;
-  background:url( https://s3.postimg.org/bqfooag4z/startific.jpg);
-  background-repeat:no-repeat;
-  width:250px;
-  margin:0px;
- text-align: center;
-font-size:20px;
-font-family: 'Strait', sans-serif;
-
-} */
 /* Forget password */
 
 .forget_html {
@@ -156,7 +142,6 @@ font-family: 'Strait', sans-serif;
   font-size: 15px;
   font-style: italic;
 }
-/* ----------------------------------------------------------------- */
 .contact_container{
 
   margin-left: 100px;
@@ -206,7 +191,7 @@ background-color: #BFBFBF;
 }  
 /* Scrollbar End */ 
 
-/* ---------------------- */
+
 
  .fa-lg {
 font-size: 1em;
@@ -222,7 +207,7 @@ top:12px;
 font-size:20px;
 
 }
-/* --------------- */
+
 
 
 .main-menu:hover, nav.main-menu.expanded {
@@ -335,8 +320,6 @@ overflow:visible;
 
 
 
-/* ------------ */
-
 .settings:hover, settings:focus {   
   background:url( https://s17.postimg.org/74cl7s05b/logo_hover.jpg);
   -webkit-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
@@ -431,33 +414,7 @@ height: 100%;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 } 
-/* ============================================================================================== */
- /* table{
-  border-collapse:collapse;
-  width: 900px;
-  height: 0px;
-  margin-top: -4%;
-  padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 1rem;
-  border-collapse:collapse;
- } */
- 
- /* .log-icon{
-  width: 56px;
-  height: 56px;
-  
- } */
- /* .header-bg{
-  display: block;
-  text-align:left;
-  vertical-align:top;
-  margin: 0 -100% 10%;
-}
-.header{
-  vertical-align:top;
-} */
-/* ========================================================================= */
+
 body {
     font-family: 'Open Sans', sans-serif;
    
@@ -710,7 +667,6 @@ border: 1px solid #e1e1e1;
         color:#fff;
     }
 
-/* ////////////////////////// */
 
 /*!
  * Bootstrap v3.1.0 (http://getbootstrap.com)

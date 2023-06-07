@@ -2,7 +2,6 @@
     class controller_cart {
 
         function view() {
-            // echo 'Hola';
             common::load_view('top_page_cart.html', VIEW_PATH_CART . 'cart.html');
         }
         function insert_cart() {

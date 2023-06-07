@@ -161,7 +161,6 @@
             return "countcar";
         }
         public function filters($db, $filter) {
-            // return $filter;
             $total_prod =  $_POST['total_prod'];
             $items_page =  $_POST['items_page'];
             $consulta = "SELECT DISTINCT c.*
@@ -188,7 +187,6 @@
                     
                 }   
                 $consulta.="LIMIT $total_prod,$items_page ";   
-                // return $consulta;
             $stmt = $db->ejecutar($consulta);
             return $db->listar($stmt);
             
@@ -232,7 +230,7 @@
             AND c.category = ca.id_cat
             AND c.motor = t.cod_tmotor
             AND $filter";
-            // $sql.="LIMIT $total_prod, $items_page";
+             $sql.="LIMIT $total_prod,$items_page ";
             $stmt = $db->ejecutar($sql);
             return $db->listar($stmt);
             
@@ -246,7 +244,6 @@
             FROM car c INNER JOIN category ca INNER JOIN type_motor t INNER JOIN model m1 INNER JOIN brand b1 
             ON c.category=ca.id_cat and c.img_car LIKE ('%1%') AND c.model = m1.id_model 
             AND m1.id_brand=b1.name_brand and c.motor=t.cod_tmotor";
-        // c.*, ca.name_cat, t.name_tmotor, b1.name_brand, c.city
         
             for ($i=0; $i < $count; $i++){
                 if ($count==1){
@@ -306,27 +303,22 @@
         }
 
         public function select_likes($db,$id_car, $username) {
-            // $sql = "call likes3 ('select_likes','$username','$id_car',@car1)";
             $sql = " SELECT id_car FROM likes l
             WHERE l.id_user = (SELECT u.id_user FROM users u WHERE u.username = '$username')
             AND l.id_car = $id_car";            
-            // $stmt2='likes';
-            //  $db->procedure_select();
-            // return $db->procedure_select($sql);
+           
              $stmt = $db->ejecutar($sql);
             return $db->listar($stmt);
             
         }
 
     public function like($db, $id_car, $username) {
-        // $sql = "INSERT INTO likes (id_user, id_car) VALUES ((SELECT u.id_user FROM users u WHERE u.username = '$username'), $id_car);";
         $sql = "call likes3 ('like','$username','$id_car',@car1);";
         return $stmt = $db->ejecutar($sql);
         }
     
         public function dislike($db,$id_car, $username) {
             $sql = "call likes3 ('dislike','$username','$id_car',@car1);";
-            // $sql = "DELETE FROM likes WHERE id_car= $id_car AND id_user=(SELECT  u.id_user FROM users u WHERE u.username= '$username');";
                 return $stmt = $db->ejecutar($sql);            
         }
     }

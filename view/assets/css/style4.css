@@ -1,12 +1,6 @@
 .header-bg{
     display: block;
-    /* padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 1rem; */
     text-align: center;
-    /* vertical-align: left; */
-    /* margin: auto; */
-    /* margin: 0 -10%; */
 }
 .button {
     display: block;

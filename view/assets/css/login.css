@@ -3,12 +3,7 @@ body {
     color: #6a6f8c;
     background: white;
 }
-/* .recover_pass-html{
-    margin: 0;
-    color: #6a6f8c;
-    background: white;
 
-} */
 
 *,
 :after,
@@ -121,7 +116,7 @@ a {
 }
 
 .login-form .group input[data-type="password"] {
-    /* text-security:circle; */
+  
     -webkit-text-security: circle;
 }
 

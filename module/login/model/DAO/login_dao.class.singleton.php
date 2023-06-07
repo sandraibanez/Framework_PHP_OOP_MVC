@@ -12,8 +12,7 @@
             return self::$_instance;
         }
         public function select_email($db,$email) {
-            // echo json_encode($email);
-            // exit;
+          
             $sql = "SELECT email FROM users WHERE email='$email'";
     
             $stmt = $db->ejecutar($sql);
@@ -36,8 +35,7 @@
             return $stmt = $db->ejecutar($sql);
         }
         public function select_user($db,$username) {
-            // echo json_encode($username);
-            // exit;
+            
             $sql = "SELECT 	username,password,email,type_user,avatar FROM users WHERE  username='$username'";
     
             $stmt = $db->ejecutar($sql);
@@ -54,13 +52,11 @@
         public function select_verify_email($db, $token_email){
 
 			$sql = "SELECT token_email FROM users WHERE token_email = '$token_email'";
-            // return $sql;
             $stmt = $db->ejecutar($sql);
             return $db->listar($stmt);
         } 
         public function update_new_passwoord($db, $token_email, $password){
            
-            // $sql = "UPDATE `users` SET `password`= '$password', `token_email`= '' WHERE `token_email` = '$token_email'";
             $sql = "UPDATE `users` 
             SET `password`= '$password', `token_email`= '' 
             WHERE  email= (SELECT `email` FROM `users` WHERE token_email = '$token_email' AND password NOT LIKE (''))
@@ -76,7 +72,6 @@
         
         public function update_recover_password($db, $email, $token_email){
 			$sql = "UPDATE `users` SET `token_email`= '$token_email' WHERE `email` = '$email'";
-            // return $sql;
             $stmt = $db->ejecutar($sql);
             return "ok";
         }
@@ -100,10 +95,7 @@
 
             $sql ="INSERT INTO `users` ( `username`, `password`, `email`, `type_user`, `avatar`,`token_email`, `activate`)     
                 VALUES ( '$username', '', '$email', 'client', '$avatar', '', 1)";
-            // $hashavatar = md5(strtolower(trim($email))); 
-            // $avatar = "https://i.pravatar.cc/500?u=$hashavatar";
-            // $sql = "INSERT INTO `users`(`username`, `password`, `email`, `type_user`, `avatar`,`token_email`, `activate`) 
-            // VALUES ('$username','','$email','client',' $avatar','',1)";
+            
             return $stmt = $db->ejecutar($sql);
         }
 

@@ -1,11 +1,8 @@
 function loadCategories() {
-  // console.log('hola');
   ajaxPromise(friendlyURL('?module=home&op=category'),'GET', 'JSON')
         .then(function(data) {
           console.log(data);
-  //     console.log(data);
       for (row in data) {
-          // console.log(data);
           $('<div></div>').attr('class', "div_cate").attr({ 'id': data[row].name_cat }).appendTo('#cards-list')
               .html(
                   "<li class='card'>" +
@@ -24,9 +21,7 @@ function loadCategories() {
 }
 
 function carousel_Brands() {
-  // console.log('hola');
   ajaxPromise(friendlyURL('?module=home&op=carrusel'),'GET', 'JSON')
-  // ajaxPromise('module/home/ctrl/ctrl_home.php?op=Carrousel_Brand','GET', 'JSON')
   .then(function(data) {
       console.log(data);
       for (row in data) {
@@ -48,13 +43,11 @@ function carousel_Brands() {
       
   
       .catch(function() {
-          //window.location.href = "index.php?module=ctrl_exceptions&op=503&type=503&lugar=Carrusel_Brands HOME";
       });
        
 }
 function loadCatTypes() {
   ajaxPromise(friendlyURL('?module=home&op=type'),'GET', 'JSON')
-  // ajaxPromise('module/home/ctrl/ctrl_home.php?op=homePageType','GET', 'JSON')
   .then(function(data) {
       console.log(data);
       for (row in data) {
@@ -73,15 +66,11 @@ function loadCatTypes() {
                }
  
   }).catch(function() {
-    //  window.location.href = "index.php?module=ctrl_exceptions&op=503&type=503&lugar=Types_car HOME";
   });
 }
 function masvisitados(){
-  // console.log('hola');
-  // ajaxPromise('module/home/ctrl/ctrl_home.php?op=visitas','GET', 'JSON')
-  // console.log('masisitados');
+
   ajaxPromise(friendlyURL('?module=home&op=visitas'),'GET', 'JSON')
-  // ajaxPromise('module/home/ctrl/ctrl_home.php?op=visitas','GET', 'JSON')
   
   .then(function(data) {
       console.log(data);
@@ -94,18 +83,13 @@ function masvisitados(){
                       slidesToShow: 2,
                       slidesToScroll: 2,
                       draggable: true,
-                      // dots: '.dots',
-                      // arrows: {
-                      //   prev: '.glider-prev',
-                      //   next: '.glider-next'
-                      // }
+                      
                     });   
                    
       })
       
   
       .catch(function() {
-          // window.location.href = "index.php?module=ctrl_exceptions&op=503&type=503&lugar=visitas HOME";
       });
 }
 function getSuggestions() {
@@ -196,16 +180,11 @@ function loadsuggestions() {
   })
 }
 function clicks() {
-    
-    // localStorage.removeItem('filter_type');
-    // localStorage.removeItem('filter_category');
-    // localStorage.removeItem('filter_model');
         localStorage.removeItem('filter');
         localStorage.removeItem('filter_type');
         localStorage.removeItem('filter_category');
         localStorage.removeItem('filter_model');
         localStorage.removeItem('filters_search');
-        // localStorage.removeItem('motor_filter');
     $(document).on("click", '.carousel__elements', function() {
         var brand_filter = [];
         brand_filter.push({ "name_brand": [this.getAttribute('id')] });
@@ -259,7 +238,6 @@ function clicks() {
 
 
 $(document).ready(function() {
-  // console.log('hola');
   loadCategories();
   carousel_Brands();
   loadCatTypes();

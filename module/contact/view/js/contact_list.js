@@ -78,28 +78,19 @@ function send(){
 		send_email({name:$("#contact_name").val(), email:$("#contact_email").val(), matter:$("#matter").val(), message:$("#message").val()});
 	 }
 }
-// include("module/contact/controller/controller_contact.class.php");
 
 function send_email(content_email) {
 	console.log('send_email');
 	console.log(content_email);
-	// console.log(email);
-	// var url = "module/contact/controller/controller_contact.class.php?op=send_contact_us";
-	// ajaxPromise("index.php?module=contact&op=send_contact_us", 'POST', 'JSON', content_email)
 	
 	ajaxPromise(friendlyURL("?module=contact&op=send_contact_us"), 'POST', 'JSON', content_email)
-	// ajaxPromise("module/contact/controller/controller_contact.class.php&op=send_contact_us", 'POST', 'JSON', {'content_email':content_email})
-	// ajaxPromise("module/cart/controller/controller_cart.php?op=insert_cart",'POST', 'JSON',{'token':token,'codigo_producto':codigo_producto})
 	.then(function (data) {
 		console.log(data);
-		// toastr.success('Email sended');
 	}).catch(function(data) {
 		console.log('Error: send contact us error');
 	});
 }
-// die('<script>console.log("contact_view2");</script>');
-// console.log('contact_list_js2');
+
 $(document).ready(function(){
 	click_contact()
-	// console.log('contact_list_js');
 });

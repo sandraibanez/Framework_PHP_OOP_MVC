@@ -1,8 +1,5 @@
 <?php
 
-// include('C:\xampp\htdocs\MVC_CRUD_concesionario2\8_MVC_CRUD2.7\model\connect.php');
-// require_once(SITE_ROOT.'module/home/model/DAO/home_dao.class.singleton.php');
-// return 'hola';
     class home_dao {
         static $_instance;
 

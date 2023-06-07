@@ -35,15 +35,7 @@ class jwt {
             case 'H':
                 $this->alg = 'HMAC';
                 break;
-            // By now, the only native is HMAC
-            /* 
-            case R:
-                $this->alg = 'RSA';
-                break;
-            case E:
-                $this->alg = 'ECDSA';
-                break;
-            */
+            
             default: exit("RSA and ECDSA not implemented yet!");
         }
         switch ($algorithm[2]) {
